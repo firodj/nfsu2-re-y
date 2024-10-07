@@ -9,3 +9,10 @@
 **.classpath
 **.settings
 /build
+/.vs
+
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/

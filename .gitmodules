@@ -10,3 +10,6 @@
 [submodule "ext/NFSU2ExOpts"]
 	path = ext/NFSU2ExOpts
 	url = https://github.com/ExOptsTeam/NFSU2ExOpts.git
+[submodule "ext/NFSU-XtendedInput"]
+	path = ext/NFSU-XtendedInput
+	url = https://github.com/xan1242/NFSU-XtendedInput
