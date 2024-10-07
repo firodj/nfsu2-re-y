@@ -17,7 +17,7 @@ void __stdcall GetSmsMessageBody(struct SmsMessage *this, char *dest, int maxlen
 		parameter = GetLanguageString(this->subjectAndBodyParameterLanguageLabel);
 		sprintf(dest, format, parameter);
 #ifdef SMS_BODY_PRINT
-		log(buf, sprintf(buf, "SMS_BODY: format %s par %s", format, parameter));
+		logging(buf, sprintf(buf, "SMS_BODY: format %s par %s", format, parameter));
 		/*
 		example format:
 			One of my contacts has just called to let me know that a photographer
@@ -34,7 +34,7 @@ void __stdcall GetSmsMessageBody(struct SmsMessage *this, char *dest, int maxlen
 	str = getCareerString(this->data->careerTextLanguageTableOffset);
 	if (!strncmp(str, "SMS_CAR_UNLOCK_", strlen("SMS_CAR_UNLOCK_"))) {
 #ifdef SMS_BODY_PRINT
-		log(buf, sprintf(buf, "SMS_BODY: %s", str));
+		logging(buf, sprintf(buf, "SMS_BODY: %s", str));
 		// example: SMS_CAR_UNLOCK_17
 		// example: SMS_CAR_UNLOCK_16
 #endif
@@ -45,7 +45,7 @@ void __stdcall GetSmsMessageBody(struct SmsMessage *this, char *dest, int maxlen
 
 	if (!strncmp(str, "ENGAGE_TIPS_AUTO", strlen("ENGAGE_TIPS_AUTO"))) {
 #ifdef SMS_BODY_PRINT
-		log(buf, sprintf(buf, "SMS_BODY: %s", str));
+		logging(buf, sprintf(buf, "SMS_BODY: %s", str));
 		// Could not find any of these?
 		// This is a single message about the autosave feature
 		// This func probably prevents ENGAGE_TIPS_AUTO_XBOX from showing
@@ -59,7 +59,7 @@ void __stdcall GetSmsMessageBody(struct SmsMessage *this, char *dest, int maxlen
 	str = GetLanguageString(cihash(buffer));
 	strcpy(dest, str);
 #ifdef SMS_BODY_PRINT
-	log(buf, sprintf(buf, "SMS_BODY: %s", buffer));
+	logging(buf, sprintf(buf, "SMS_BODY: %s", buffer));
 	// example: SMS_OUTRUN_DEFEAT_BODY
 	// example: SMS_END_OF_GAME_MESSAGE_BODY
 #endif

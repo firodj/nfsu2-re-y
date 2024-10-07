@@ -14,7 +14,7 @@ void ReadFileHookPrint(
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "ReadFile(\"%s\")", path));
+	logging(buf, sprintf(buf, "ReadFile(\"%s\")", path));
 }
 
 static
@@ -39,7 +39,7 @@ void WriteFileHookPrint(
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "WriteFile(\"%s\")", path));
+	logging(buf, sprintf(buf, "WriteFile(\"%s\")", path));
 }
 
 static
@@ -64,7 +64,7 @@ void CreateFileAHookPrint(
 	DWORD dwFlagsAndAttributes,
 	HANDLE hTemplateFile)
 {
-	log(buf, sprintf(buf, "CreateFileA(\"%s\", access=%X)", lpFileName, dwDesiredAccess));
+	logging(buf, sprintf(buf, "CreateFileA(\"%s\", access=%X)", lpFileName, dwDesiredAccess));
 }
 
 static

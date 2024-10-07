@@ -27,7 +27,7 @@ void do50D510Print(int *esp)
 		if (len && buf2[len - 1] == '\n') {
 			buf2[len - 1] = 0;
 		}
-		log(buf, sprintf(buf, "debugstr\t50D510\t%p\t%s", from, buf2));
+		logging(buf, sprintf(buf, "debugstr\t50D510\t%p\t%s", from, buf2));
 	}
 }
 

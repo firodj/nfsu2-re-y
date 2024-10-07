@@ -5,7 +5,7 @@ void __stdcall PoolExtend(struct Pool *this, int elementAmount)
 	struct Pool *lastPool;
 	char *ptr;
 
-	log(buf, sprintf(buf, "POOL:EXT '%s' size %d amt %d + %d unk %08X",
+	logging(buf, sprintf(buf, "POOL:EXT '%s' size %d amt %d + %d unk %08X",
 		this->name, this->elementSize, this->elementAmount,
 		elementAmount, this->field_20));
 	ext = ((struct Pool*(__cdecl *)(int,int,char*,int))0x440B40)

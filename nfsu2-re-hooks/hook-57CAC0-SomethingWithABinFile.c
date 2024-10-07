@@ -17,7 +17,7 @@ SomethingWithAFile NIS\Scene_IntroNis08_EvtTrk.txt
 static
 void SomethingWithABinFile(int returnaddr, char *filename)
 {
-	log(buf, sprintf(buf, "SomethingWithABinFile %s", filename));
+	logging(buf, sprintf(buf, "SomethingWithABinFile %s", filename));
 }
 
 static

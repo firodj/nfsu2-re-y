@@ -8,17 +8,17 @@ void dump_smsdata(int i, struct SmsData *sms)
 	int len;
 
 	sms_id = (*ptr838428) + sms->careerTextLanguageTableOffset;
-	log(buf, sprintf(buf, "\nSMS DATA %d: (%08X) %s", i, cihash(sms_id), sms_id));
+	logging(buf, sprintf(buf, "\nSMS DATA %d: (%08X) %s", i, cihash(sms_id), sms_id));
 	if (!strncmp(sms_id, "SMS_CAR_UNLOCK_", strlen("SMS_CAR_UNLOCK_"))) {
 		sms_id = "SMS_CAR_UNLOCK_1"; // see 5149C0-GetSmsMessageSubject
 	}
 	str = GetLanguageString(sms->senderLanguageLabel);
-	log(buf, sprintf(buf, "  type %d mailbox %d f4 %08x f8 %08x moneyReward %d",
+	logging(buf, sprintf(buf, "  type %d mailbox %d f4 %08x f8 %08x moneyReward %d",
 		sms->type, sms->mailboxId, sms->field_4, sms->field_8, sms->moneyReward));
 	sprintf(buf, "%s_SUBJECT", sms_id);
 	hash = cihash(buf);
-	log(buf, sprintf(buf, "  subject: (%08X) %s", hash, GetLanguageString(hash)));
-	log(buf, sprintf(buf, "   sender: (%08X) %s", sms->senderLanguageLabel, str));
+	logging(buf, sprintf(buf, "  subject: (%08X) %s", hash, GetLanguageString(hash)));
+	logging(buf, sprintf(buf, "   sender: (%08X) %s", sms->senderLanguageLabel, str));
 	sprintf(buf, "%s_BODY", sms_id);
 	hash = cihash(buf);
 	str = GetLanguageString(hash);
@@ -28,7 +28,7 @@ void dump_smsdata(int i, struct SmsData *sms)
 			len += sprintf(buf + len, "%c", *str);
 			str++;
 		}
-		log(buf, len);
+		logging(buf, len);
 		len = sprintf(buf, "                      ");
 	} while (*str);
 }

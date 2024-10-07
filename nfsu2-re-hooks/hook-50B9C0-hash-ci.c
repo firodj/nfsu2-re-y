@@ -3,7 +3,7 @@ void PrintHashCI50B9C0Hook(
 	/*pushad*/ int a, int b, int c, int d, int e, int f, int g, int h,
 	int result, char *str)
 {
-	hash_func_log(str, result, 0x50B9C0);
+	hash_func_logging(str, result, 0x50B9C0);
 }
 
 static

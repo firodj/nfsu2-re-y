@@ -7,7 +7,7 @@ void doBaseNotifyHook(void *ignore, unsigned int message, int arg4, int arg8, st
 		message != 0x32C72D8F /*?*/ &&
 		message != 0xFC946BFA /*?*/)
 	{
-		log(buf, sprintf(buf, "message %08X args %x %x %s", message, arg4, arg8, fngInfo->fngName));
+		logging(buf, sprintf(buf, "message %08X args %x %x %s", message, arg4, arg8, fngInfo->fngName));
 	}
 	_asm { popad }
 }

@@ -123,9 +123,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason_for_call, LPVOID lpResrvd)
 		VirtualProtect((LPVOID) base, 280000, PAGE_EXECUTE_READWRITE, &oldvp);
 
 		logfile = fopen("../SPEED2-LOG.TXT", "wb");
-		log(buf, sprintf(buf, "\n\n\n\nATTACHED"));
+		logging(buf, sprintf(buf, "\n\n\n\nATTACHED"));
 		if (base != 0x400000) {
-			log(buf, sprintf(buf, "base is not at 400000!"));
+			logging(buf, sprintf(buf, "base is not at 400000!"));
 		}
 		INIT_FUNC();
 	} else if (reason_for_call == DLL_PROCESS_DETACH) {

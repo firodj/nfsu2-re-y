@@ -1,7 +1,7 @@
 static
 void SomeHashCI505450Print(char *arg, int *result)
 {
-	hash_func_log(arg, *result, 0x505450);
+	hash_func_logging(arg, *result, 0x505450);
 }
 
 static

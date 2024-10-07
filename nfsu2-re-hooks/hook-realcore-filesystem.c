@@ -4,7 +4,7 @@ void RCFS_ReadFileWrapperPrint(HANDLE hFile)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: ReadFileWrapper(\"%s\")", path));
+	logging(buf, sprintf(buf, "realcoreFS: ReadFileWrapper(\"%s\")", path));
 }
 
 static
@@ -30,7 +30,7 @@ void RCFS_WriteFileWrapperPrint(HANDLE hFile)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: WriteFileWrapper(\"%s\")", path));
+	logging(buf, sprintf(buf, "realcoreFS: WriteFileWrapper(\"%s\")", path));
 }
 
 static
@@ -54,7 +54,7 @@ void RCFS_SetFilePointerWrapperPrint(HANDLE hFile, int distance, int movemethod)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: SetFilePointerWrapper(\"%s\", distance=%d from %s(method %d))",
+	logging(buf, sprintf(buf, "realcoreFS: SetFilePointerWrapper(\"%s\", distance=%d from %s(method %d))",
 		path,
 		distance,
 		movemethod == 1 ? "current" : "SOF",
@@ -84,7 +84,7 @@ void RCFS_GetFileSizeWrapperPrint(HANDLE hFile)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: GetFileSizeWrapper(\"%s\")", path));
+	logging(buf, sprintf(buf, "realcoreFS: GetFileSizeWrapper(\"%s\")", path));
 }
 
 static
@@ -108,7 +108,7 @@ void RCFS_DeleteFileAWrapperPrint(HANDLE hFile)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: DeleteFileAWrapper(\"%s\")", path));
+	logging(buf, sprintf(buf, "realcoreFS: DeleteFileAWrapper(\"%s\")", path));
 }
 
 static
@@ -132,7 +132,7 @@ void RCFS_CloseHandleWrapperPrint(HANDLE hFile)
 	char path[2000];
 
 	GetFinalPathNameByHandleA(hFile, path, sizeof(path), 0);
-	log(buf, sprintf(buf, "realcoreFS: CloseHandleWrapper(\"%s\")", path));
+	logging(buf, sprintf(buf, "realcoreFS: CloseHandleWrapper(\"%s\")", path));
 }
 
 static
@@ -154,7 +154,7 @@ __declspec(naked) void RCFS_CloseHandleWrapper()
 static
 void RCFS_FindFirstFileAWrapperPrint(char *lpFileName)
 {
-	log(buf, sprintf(buf, "realcoreFS: FindFirstFileA(\"%s\")", lpFileName));
+	logging(buf, sprintf(buf, "realcoreFS: FindFirstFileA(\"%s\")", lpFileName));
 }
 
 static

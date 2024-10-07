@@ -1,7 +1,7 @@
 static
 void SomeHashCS43DB50Print(char *arg, int *result)
 {
-	hash_func_log(arg, *result, 0x43DB50);
+	hash_func_logging(arg, *result, 0x43DB50);
 
 	if (arg != NULL) {
 		if (strcmp(arg, "FIRETRUCK") == 0) {

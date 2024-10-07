@@ -17,7 +17,7 @@ void __stdcall GetSmsMessageSubject(struct SmsMessage *this, char *dest, int max
 		parameter = GetLanguageString(this->subjectAndBodyParameterLanguageLabel);
 		sprintf(dest, format, parameter);
 #ifdef SMS_SUBJECT_PRINT
-		log(buf, sprintf(buf, "SMS_SUBJECT: format %s par %s", format, parameter));
+		logging(buf, sprintf(buf, "SMS_SUBJECT: format %s par %s", format, parameter));
 		// example format: %s cover opportunity
 		// example param: AutoMaxx Magazine
 #endif
@@ -27,7 +27,7 @@ void __stdcall GetSmsMessageSubject(struct SmsMessage *this, char *dest, int max
 	str = getCareerString(this->data->careerTextLanguageTableOffset);
 	if (!strncmp(str, "SMS_CAR_UNLOCK_", strlen("SMS_CAR_UNLOCK_"))) {
 #ifdef SMS_SUBJECT_PRINT
-		log(buf, sprintf(buf, "SMS_SUBJECT: %s", str));
+		logging(buf, sprintf(buf, "SMS_SUBJECT: %s", str));
 		// example: SMS_CAR_UNLOCK_17
 		// example: SMS_CAR_UNLOCK_16
 #endif
@@ -40,7 +40,7 @@ void __stdcall GetSmsMessageSubject(struct SmsMessage *this, char *dest, int max
 	str = GetLanguageString(cihash(buffer));
 	strcpy(dest, str);
 #ifdef SMS_SUBJECT_PRINT
-	log(buf, sprintf(buf, "SMS_SUBJECT: %s", buffer));
+	logging(buf, sprintf(buf, "SMS_SUBJECT: %s", buffer));
 	// example: ENGAGE_TIP_CAREER_PROG_SUBJECT
 	// example: SMS_DVD_COVER_10_SUBJECT
 #endif

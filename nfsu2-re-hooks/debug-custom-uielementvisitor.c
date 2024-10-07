@@ -6,7 +6,7 @@ void debug_custom_uielementvisitor_visit_fng(struct FNGInfo *fng, char *prefix)
 
 	sprintf(locbuf, "%s    ", prefix);
 	do {
-		log(buf, sprintf(buf, "%sfng %s:", prefix, fng->fngName));
+		logging(buf, sprintf(buf, "%sfng %s:", prefix, fng->fngName));
 		element = fng->rootUIElement;
 		print_ui_element_and_children(element, locbuf, 1);
 		fng = fng->child;
@@ -17,7 +17,7 @@ static
 void debug_custom_uielementvisitor(int wparam)
 {
 	if (wparam == 121) { // y
-		log(buf, sprintf(buf, "\n\n\nVISITING ELEMENT\n"));
+		logging(buf, sprintf(buf, "\n\n\nVISITING ELEMENT\n"));
 		debug_custom_uielementvisitor_visit_fng(pUIData[0]->field_8->topPackage, "");
 	}
 

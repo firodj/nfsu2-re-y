@@ -2,7 +2,7 @@ static
 void *__stdcall GetFNGInfoByName_Post(struct FNGInfo *info, char *name)
 {
 	if (info) {
-		log(buf, sprintf(buf,
+		logging(buf, sprintf(buf,
 			"GetFNGInfoByName_Post %p hash %08X somestring '%s' name '%s'",
 			info,
 			info->hash,

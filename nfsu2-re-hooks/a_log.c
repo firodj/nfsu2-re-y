@@ -4,7 +4,7 @@ static char buf[4096], buf2[4096];
 static char newline = 10;
 
 static
-void log(char *msg, int len)
+void logging(char *msg, int len)
 {
 #ifdef LOG_TO_LOGFILE
 	fwrite(msg, len, 1, logfile);
@@ -22,10 +22,10 @@ void log(char *msg, int len)
 }
 
 static
-void hash_func_log(char *arg, int result, int address)
+void hash_func_logging(char *arg, int result, int address)
 {
 	if (arg != NULL) {
-		log(buf, sprintf(buf, "hash\t%s\t%p\t%X", arg, result, address));
+		logging(buf, sprintf(buf, "hash\t%s\t0x%x\t%X", arg, result, address));
 	}
 }
 
@@ -36,19 +36,19 @@ void logvalue(char *lineprefix, char *varname, int value)
 	int derefval;
 
 	floatval = *((float*) &value);
-	log(buf, sprintf(buf, "%s   value '%s'", lineprefix, varname));
-	log(buf, sprintf(buf, "%s     char %d 0x%X short 0x%d %X int %d 0x%X float %.1f",
+	logging(buf, sprintf(buf, "%s   value '%s'", lineprefix, varname));
+	logging(buf, sprintf(buf, "%s     char %d 0x%X short 0x%d %X int %d 0x%X float %.1f",
 		lineprefix, value & 0xFF, value & 0xFF, value & 0xFFFF, value & 0xFFFF,
 		value, value, floatval));
 	if (!IsBadReadPtr((void*) value, 4)) {
-		log(buf, sprintf(buf, "%s      is valid pointer to:", lineprefix));
+		logging(buf, sprintf(buf, "%s      is valid pointer to:", lineprefix));
 		derefval = *((int*) value);
 		floatval = *((float*) &derefval);
-		log(buf, sprintf(buf, "%s        char %d 0x%X short %d 0x%X int %d 0x%X float %.1f",
+		logging(buf, sprintf(buf, "%s        char %d 0x%X short %d 0x%X int %d 0x%X float %.1f",
 			lineprefix, value & 0xFF, value & 0xFF, value & 0xFFFF, value & 0xFFFF,
 			value, value, floatval));
 	}
 	if (!IsBadStringPtrA((char*) value, sizeof(buf) - 10)) {
-		log(buf, sprintf(buf, "%s      strptr: '%s'", lineprefix, value));
+		logging(buf, sprintf(buf, "%s      strptr: 0x%x", lineprefix, value));
 	}
 }

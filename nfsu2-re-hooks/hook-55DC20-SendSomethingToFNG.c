@@ -9,7 +9,7 @@ void SendSomethingToFNG(
       int ignore_ret_adds,
       char *fng, int message)
 {
-	log(buf, sprintf(buf, "SendSomethingToFNG \"%s\", %p", fng, message));
+	logging(buf, sprintf(buf, "SendSomethingToFNG \"%s\", %p", fng, message));
 }
 
 static

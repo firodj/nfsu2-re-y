@@ -225,7 +225,7 @@ void print_ui_element_and_children(struct UIElement *element, char *prefix, char
 		}
 		//element->someFlags |= 0x2; // set visible
 		//element->someFlags &= ~1; // set visible
-		log(buf, sprintf(buf, "%selement %p type %d hash %08X flags %8X:%s",
+		logging(buf, sprintf(buf, "%selement %p type %d hash %08X flags %8X:%s",
 			prefix, element, element->type, element->hash, element->someFlags, locbuf2));
 		if (element->type == 5) {
 			containerchild = ((struct UIContainer*) element)->children;

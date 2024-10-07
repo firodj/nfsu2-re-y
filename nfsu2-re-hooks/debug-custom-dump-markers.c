@@ -30,15 +30,15 @@ void dump_marker(struct Marker *marker)
 	char *name;
 	int i;
 
-	log(buf, sprintf(buf, "  structsize %d x %f y %f radius %d",
+	logging(buf, sprintf(buf, "  structsize %d x %f y %f radius %d",
 		marker->markerStructSize, marker->pos_x, marker->pos_y, marker->radius));
 	switch (marker->type) {
 	case 0x11:
 		nbhn = GetNeighbourhoodNameForHash(marker->hash);
 		if (nbhn) {
-			log(buf, sprintf(buf, "    neighbourhood: %s", nbhn->ptrName));
+			logging(buf, sprintf(buf, "    neighbourhood: %s", nbhn->ptrName));
 		} else {
-			log(buf, sprintf(buf, "    neighbourhood (not found)"));
+			logging(buf, sprintf(buf, "    neighbourhood (not found)"));
 		}
 		break;
 	case 0x12:
@@ -53,9 +53,9 @@ void dump_marker(struct Marker *marker)
 		}
 		if (sms) {
 			name = *careerStringPool838428 + sms->careerTextLanguageTableOffset;
-			log(buf, sprintf(buf, "    engage tip sms: %s", name));
+			logging(buf, sprintf(buf, "    engage tip sms: %s", name));
 		} else {
-			log(buf, sprintf(buf, "    engage tip sms (not found)"));
+			logging(buf, sprintf(buf, "    engage tip sms (not found)"));
 		}
 		break;
 	}
@@ -70,7 +70,7 @@ void debug_custom_dump_markers(int wparam)
 	void *end;
 
 	if (wparam == 121) { // y
-		log(buf, sprintf(buf, "%d markers:", pathsData->numMarkers));
+		logging(buf, sprintf(buf, "%d markers:", pathsData->numMarkers));
 		for (type = 0; type <= 20; type++) {
 			pointer = (void*) pathsData->markers[type];
 			end = pathsData->markers[type + 1];
@@ -80,10 +80,10 @@ void debug_custom_dump_markers(int wparam)
 				num++;
 				pointer += marker->markerStructSize;
 			}
-			log(buf, sprintf(buf, "  type %d (%s): %d markers", type, markerTypeName[type], num));
+			logging(buf, sprintf(buf, "  type %d (%s): %d markers", type, markerTypeName[type], num));
 		}
 		for (type = 0; type <= 20; type++) {
-			log(buf, sprintf(buf, "type %d (%s) markers:", type, markerTypeName[type]));
+			logging(buf, sprintf(buf, "type %d (%s) markers:", type, markerTypeName[type]));
 			pointer = (void*) pathsData->markers[type];
 			end = pathsData->markers[type + 1];
 			while (pointer < end) {

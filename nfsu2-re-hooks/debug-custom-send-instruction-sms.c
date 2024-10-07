@@ -6,7 +6,7 @@ void debug_custom_send_instruction_sms()
 	if (wparam == 121) { // y
 		smsdata = ((struct SmsData*(__cdecl *)(unsigned int))0x501310)
 					(cshash("SMS_INSTRUCTION"));
-		log(buf, sprintf(buf, "smsdata %p", smsdata));
+		logging(buf, sprintf(buf, "smsdata %p", smsdata));
 		if (smsdata) {
 			SmsMessageList__SendMessageEvenIfAlreadyReceived(smsdata);
 		}

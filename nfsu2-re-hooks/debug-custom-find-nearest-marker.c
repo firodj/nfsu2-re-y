@@ -11,7 +11,7 @@ void debug_custom_find_nearest_marker(int wparam)
 			b = (void*) *(a + 1);
 			b += 0x60 / 4;
 			nearest = Markers__FindClosest_AfterIndex(b, 0x12, 0);
-			log(buf, sprintf(buf, "my pos %.1f %.1f %.1f nearest %p",
+			logging(buf, sprintf(buf, "my pos %.1f %.1f %.1f nearest %p",
 				*(float*) b, *(float*) (b + 1), *(float*) (b + 2),
 				nearest));
 
@@ -24,7 +24,7 @@ void debug_custom_find_nearest_marker(int wparam)
 				((void(__cdecl *)(void*,char*,int))0x51CF70)(b,"ZoomIn",1);
 			}
 		} else {
-			log(buf, sprintf(buf, "can't get position"));
+			logging(buf, sprintf(buf, "can't get position"));
 		}
 	}
 

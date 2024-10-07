@@ -6,7 +6,7 @@ struct Pool *CreatePool(int elementSize, int elementAmount, char *name, int unkn
 
 	elementSize += 3;
 	elementSize -= elementSize % 4;
-	log(buf, sprintf(buf, "POOL:NEW '%s' size %d amt %d unk %08X",
+	logging(buf, sprintf(buf, "POOL:NEW '%s' size %d amt %d unk %08X",
 		name, elementSize, elementAmount, unknown));
 	pool = ((struct Pool*(__cdecl *)(int,int,char*,int))0x440B40)
 			(elementSize, elementAmount, name, unknown);

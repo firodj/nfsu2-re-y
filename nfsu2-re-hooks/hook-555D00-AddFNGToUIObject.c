@@ -8,7 +8,7 @@ void HookAddFNGToUIObject(
 	int controlMask,
 	char *data)
 {
-	log(buf, sprintf(buf,
+	logging(buf, sprintf(buf,
 		"AddFNGToUIObject unk: %08X "
 		"fngName '%s' parentFngName '%s' controlMask %d data %p",
 		unk,

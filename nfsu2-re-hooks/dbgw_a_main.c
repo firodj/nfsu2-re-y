@@ -1311,7 +1311,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		} if (nmhdr->hwndFrom == hUITree && nmhdr->code == TVN_SELCHANGED) {
 			element = dbgw_get_selected_uielement();
 			if (element) {
-				sprintf(buf, "Element@%08X", element);
+				sprintf(buf, "Element@%08X", (uintptr_t)element);
 				SendMessage(hUiProp.addr, WM_SETTEXT, 0, (LPARAM) buf);
 				if (!(GetWindowLong(hUiProp.window, GWL_STYLE) & WS_VISIBLE)) {
 					ShowWindow(hUiProp.window, SW_SHOW);

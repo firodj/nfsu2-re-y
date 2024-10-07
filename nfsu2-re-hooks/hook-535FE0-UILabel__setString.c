@@ -1,7 +1,7 @@
 static
 void UILabelSetStringLog(struct UILabel *this, char *str)
 {
-	log(buf, sprintf(buf, "setting UILabel@%p (hash %08X) string to: %s",
+	logging(buf, sprintf(buf, "setting UILabel@%p (hash %08X) string to: %s",
 			this,
 			this->__parent.hash,
 			str));

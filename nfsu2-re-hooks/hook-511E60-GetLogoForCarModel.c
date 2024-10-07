@@ -8,7 +8,7 @@ void GetLogoForCarModel(int car_model_index)
 	struct CarModelInfo *car_model_info;
 
 	car_model_info = (*_car_model_infos) + car_model_index;
-	log(buf, sprintf(buf,
+	logging(buf, sprintf(buf,
 		"car idx %d at %p brand %s manufacturer %s",
 		car_model_index,
 		car_model_info,

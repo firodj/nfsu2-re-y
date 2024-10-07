@@ -22,7 +22,7 @@ __declspec(naked) void printCreatedPools()
 		add esp, 0x1C
 
 	}
-	log(buf, strlen(buf));
+	logging(buf, strlen(buf));
 	_asm {
 
 		popad
