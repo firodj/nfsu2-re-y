@@ -1,0 +1,12 @@
+[submodule "ext/NFSScript"]
+	path = ext/NFSScript
+	url = https://github.com/nlgxzef/NFSScript
+[submodule "ext/NFSU2CarSoundTuner"]
+	path = ext/NFSU2CarSoundTuner
+	url = https://github.com/nlgxzef/NFSU2CarSoundTuner.git
+[submodule "ext/NFSU2Unlimiter"]
+	path = ext/NFSU2Unlimiter
+	url = https://github.com/nlgxzef/NFSU2Unlimiter.git
+[submodule "ext/NFSU2ExOpts"]
+	path = ext/NFSU2ExOpts
+	url = https://github.com/ExOptsTeam/NFSU2ExOpts.git
