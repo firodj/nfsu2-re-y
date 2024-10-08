@@ -39,3 +39,9 @@ nfsu2-re-gamefile-explorer
 ==========================
 
 Just open the folder with IntelliJ and run U2gfeMain, alternatively add Jar Archive.
+
+
+sub_406460
+JoyPlayForcefeedback_5C9150
+
+JoyCreateConstantEffect_5C0200
