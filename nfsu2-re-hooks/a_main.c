@@ -45,7 +45,7 @@ static void stub() {}
 #include "faux-enable-console.c"
 //#include "hook-43DB50-hash-cs.c"
 //#include "hook-440B40-AllocateAndInitPool.c"
-//#include "hook-4691C0-DebugPrint.c"
+#include "hook-4691C0-DebugPrint.c"
 //#include "hook-505450-hash-ci.c"
 //#include "hook-50B9C0-hash-ci.c"
 //#include "hook-511E60-GetLogoForCarModel.c"

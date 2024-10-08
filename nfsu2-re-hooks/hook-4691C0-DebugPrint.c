@@ -1,13 +1,18 @@
+#include <string.h>
+
+typedef size_t(__cdecl* strlen_func_ptr)(const char*);
+strlen_func_ptr strlen_f = strlen;
+
 static
 __declspec(naked) void DebugPrint4691C0_PrintWhenDone()
 {
 	_asm {
 		pusha
 		push 0x82C738 // char audioDebugString[512]
-		call strlen
+		call strlen_f
 		push eax
 		push 0x82C738 // char audioDebugString[512]
-		call log
+		call logging
 		add esp, 0xC
 		popa
 		add esp, 0x10 // overwrote this
@@ -29,10 +34,33 @@ __declspec(naked) void DebugPrint4691C0_EnsureEnabled()
 }
 
 static
+__declspec(naked) void __cdecl DebugPrint_5BFC00(const char *a1, ...)
+{
+  _asm {
+	mov     ecx, [esp+4]
+	sub     esp, 100h
+	lea     eax, [esp+100h+8]
+	push    eax
+	push    ecx
+	lea     edx, [esp+108h -100h]
+	push    edx
+	call    ds:wvsprintfA	// stdcall, arg already poped
+	push    eax
+	lea     edx, [esp+104h -100h]
+	push    edx
+	call    logging
+	add     esp, 8
+	add     esp, 100h
+	retn
+  }
+}
+
+static
 void initHookRecv()
 {
 	mkjmp(0x4691C0, &DebugPrint4691C0_EnsureEnabled);
 	mkjmp(0x4691F8, &DebugPrint4691C0_PrintWhenDone);
+	mkjmp(0x5BFC00, &DebugPrint_5BFC00);
 
 	INIT_FUNC();
 #undef INIT_FUNC
