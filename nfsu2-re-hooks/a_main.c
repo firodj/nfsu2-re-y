@@ -45,7 +45,7 @@ static void stub() {}
 #include "faux-enable-console.c"
 //#include "hook-43DB50-hash-cs.c"
 //#include "hook-440B40-AllocateAndInitPool.c"
-#include "hook-4691C0-DebugPrint.c"
+//#include "hook-4691C0-DebugPrint.c"
 //#include "hook-505450-hash-ci.c"
 //#include "hook-50B9C0-hash-ci.c"
 //#include "hook-511E60-GetLogoForCarModel.c"
@@ -64,7 +64,7 @@ static void stub() {}
 //#include "replace-50B790-ShowFNG.c"
 //#include "replace-50CD00-IsPointInRect.c"
 //#include "replace-50CDB0-DidCursorPressInRect.c"
-//#include "replace-50D510-DebugPrint.c"
+#include "replace-50D510-DebugPrint.c"
 //#include "replace-5149C0-GetSmsMessageSubject.c"
 //#include "replace-497760-GetSmsMessageSubjectHeader.c" /*needs to be after GetSmsMessageSubject*/
 //#include "replace-514B00-GetSmsMessageBody.c"

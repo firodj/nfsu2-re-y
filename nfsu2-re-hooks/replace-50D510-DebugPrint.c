@@ -27,7 +27,7 @@ void do50D510Print(int *esp)
 		if (len && buf2[len - 1] == '\n') {
 			buf2[len - 1] = 0;
 		}
-		logging(buf, sprintf(buf, "debugstr\t50D510\t%p\t%s", from, buf2));
+		logging(buf, sprintf(buf, "debugstr\t50D510\t0x%x\t%s", from, buf2));
 	}
 }
 
@@ -47,9 +47,32 @@ __declspec(naked) void hook50D510Print()
 }
 
 static
+__declspec(naked) void __cdecl replace_DebugPrint_5BFC00(const char *a1, ...)
+{
+  _asm {
+	mov     ecx, [esp+4]
+	sub     esp, 100h
+	lea     eax, [esp+100h+8]
+	push    eax
+	push    ecx
+	lea     edx, [esp+108h -100h]
+	push    edx
+	call    ds:wvsprintfA	// stdcall, arg already poped
+	push    eax
+	lea     edx, [esp+104h -100h]
+	push    edx
+	call    logging
+	add     esp, 8
+	add     esp, 100h
+	retn
+  }
+}
+
+static
 void initHook50D510Print()
 {
 	mkjmp(0x50D510, &hook50D510Print);
+	mkjmp(0x5BFC00, &replace_DebugPrint_5BFC00);
 
 	INIT_FUNC();
 #undef INIT_FUNC
